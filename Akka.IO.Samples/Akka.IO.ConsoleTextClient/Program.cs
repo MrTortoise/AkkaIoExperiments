@@ -14,11 +14,11 @@ namespace Akka.IO.ConsoleTextClient
         static void Main(string[] args)
         {
             IPHostEntry ipHostInfo = Dns.GetHostEntry("localhost");
-            IPAddress ipAddress = ipHostInfo.AddressList[0];
+            IPAddress ipAddress = ipHostInfo.AddressList[1];
             IPEndPoint remoteEP = new IPEndPoint(ipAddress, 34000);
 
             Socket sender = new Socket(AddressFamily.InterNetwork,
-               SocketType.Stream, ProtocolType.Unspecified);
+               SocketType.Stream, ProtocolType.Tcp);
 
             sender.Connect(remoteEP);
 
